@@ -1,6 +1,7 @@
 // This file is part of InvenioRDM
-// Copyright (C) 2020 CERN.
-// Copyright (C) 2020 Northwestern University.
+// Copyright (C) 2020-2021 CERN.
+// Copyright (C) 2020-2021 Northwestern University.
+// Copyright (C) 2021 Graz University of Technology.
 //
 // Invenio RDM Records is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
@@ -30,7 +31,7 @@ const RecordManagement = () => {
     <div class="reverse-header-margin">
       <div class="ui warning flashed message">
         <div class="ui container">
-          <Grid padded relaxed>
+          <Grid relaxed>
             <Grid.Column>
               <Grid.Row>
                 <Icon name="cogs" />
