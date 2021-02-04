@@ -21,6 +21,19 @@
     }
   }
 
+  .ui.form .field .form-group label{
+    font-weight: normal;
+  }
+
+  /**targets the top-level fields, id=top-level-fields is injected in react.*/
+  label#top-level-fields{
+    font-size: 14px;
+  }
+  /**targets the top-level resource_type field,
+  this is because this field (label) does not have the id.*/
+  .required.field label[for="metadata.resource_type"]{
+    font-size: 14px;
+  }
   .save-button {
     margin-bottom: 0.5em;
   }
