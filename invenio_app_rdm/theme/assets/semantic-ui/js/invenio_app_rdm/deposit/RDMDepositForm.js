@@ -43,6 +43,7 @@ import {
   LicenseField,
 } from "react-invenio-deposit";
 import { AccordionField } from "react-invenio-forms";
+import { DoiMint } from "./DoiMint";
 
 export class RDMDepositForm extends Component {
   constructor(props) {
@@ -504,6 +505,7 @@ export class RDMDepositForm extends Component {
                       label={"Protection"}
                       labelIcon={"shield"}
                     />
+                    <DoiMint record={this.props.record}/>
                   </Sticky>
                 </Grid.Column>
               </Ref>
