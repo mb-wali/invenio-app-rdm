@@ -113,6 +113,9 @@
       <div class="five wide column">
         {% block record_sidebar %}
         {%- include "invenio_app_rdm/records/details/side_bar.html" %}
+        <div style="text-align: center;">
+        {%- include "invenio_app_rdm/records/details/doi.html" %}
+        </div>
         {% endblock record_sidebar %}
       </div>
     </div>
