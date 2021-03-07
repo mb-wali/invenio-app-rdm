@@ -1,11 +1,24 @@
 // WIP
 export function MapDatacite(metadata, recordid) {
-  console.log('record id', recordid)
-  console.log('retrieved', metadata)
-  console.log('creators []', metadata.creators)
-  console.log('publication_date []', metadata.publication_date)
+  // console.log('record id', recordid)
+  // console.log('retrieved', metadata)
+  // console.log('creators []', metadata.creators)
+  // console.log('publication_date []', metadata.publication_date)
   let r = Math.random().toString(36).substring(7);
-  console.log("random", r);
+  const creators = []
+
+  // // func return first letter capit -
+  // const capitalize = (s) => {
+  //   if (typeof s !== 'string') return ''
+  //   return s.charAt(0).toUpperCase() + s.slice(1)
+  // }
+
+  // loop throgh and add the creators
+  if (metadata.creators){
+    for (const creator of metadata.creators){
+      creators.push({"name": creator.person_or_org.name})
+    }
+  }
 
     const dataciterecord = {
         data : {
@@ -14,9 +27,7 @@ export function MapDatacite(metadata, recordid) {
           attributes: {
             event: "publish",
             doi: "10.0356/datacite-"+r,
-            creators: [{
-              name: metadata.creators[0].person_or_org.name
-            }],
+            creators,
             titles: [{
               title: metadata.title
             }],
@@ -30,9 +41,12 @@ export function MapDatacite(metadata, recordid) {
           }
         }
       };
-
       return dataciterecord
     }
 
 // docs: https://support.datacite.org/docs/api-create-dois
 // test created: https://api.test.datacite.org/dois/10.0356/datacite-8baxw
+
+// publish - Triggers a state move from draft or registered to findable
+// register - Triggers a state move from draft to registered
+// hide - Triggers a state move from findable to registered

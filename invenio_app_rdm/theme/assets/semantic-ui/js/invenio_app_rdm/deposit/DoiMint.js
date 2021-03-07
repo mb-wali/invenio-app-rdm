@@ -102,7 +102,7 @@ export class DoiMint extends Component {
             Datacite DOI
           </Card.Header>
           <Card.Description>
-            The Record must be a <b>published</b> record to mint a DOI.
+            Record must be a <b>published</b> record to mint a DOI.
           </Card.Description>
 
           {/* when the Component is rendered */}

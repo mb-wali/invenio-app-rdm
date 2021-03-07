@@ -26,7 +26,6 @@ export class DoiRest {
    * @param {object} auth - Cridentials for DOI
    */
   async create(record, auth) {
-      console.log(auth.username)
     try {
       let response = await axios.post(
         this.createUrl,
