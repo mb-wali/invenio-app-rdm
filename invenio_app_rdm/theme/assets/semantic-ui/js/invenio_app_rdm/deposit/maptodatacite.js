@@ -4,6 +4,8 @@ export function MapDatacite(metadata, recordid, prefix) {
   // console.log('retrieved', metadata)
   // console.log('creators []', metadata.creators)
   // console.log('publication_date []', metadata.publication_date)
+
+  // use this to generate random string
   let r = Math.random().toString(36).substring(7);
   const creators = []
 
@@ -22,11 +24,11 @@ export function MapDatacite(metadata, recordid, prefix) {
 
     const dataciterecord = {
         data : {
-          id: prefix+"/datacite-"+r,
+          id: prefix+"/datacite-"+recordid,
           type: "dois",
           attributes: {
             event: "publish",
-            doi: prefix+"/datacite-"+r,
+            doi: prefix+"/datacite-"+recordid,
             creators,
             titles: [{
               title: metadata.title

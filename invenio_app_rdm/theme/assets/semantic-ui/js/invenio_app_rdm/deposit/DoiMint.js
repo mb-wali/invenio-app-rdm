@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Card, Icon, Label, Loader, Dimmer } from "semantic-ui-react";
+import { Button, Card, Icon, Label, Loader, Dimmer, Message } from "semantic-ui-react";
 import { MapDatacite } from "./maptodatacite";
 import { DoiRest } from "./DoiRest";
 import { FieldArray } from "formik";
@@ -30,6 +30,8 @@ export class DoiMint extends Component {
       identifiers: [],
       showLoader: false,
       doi_id: "",
+      errorMsg: "",
+      isError: false
     };
 
     // console.log(this.metadata);
@@ -67,6 +69,8 @@ export class DoiMint extends Component {
             console.log(data.data.errors[0].title);
             this.setState({
               showLoader: false,
+              isError: true,
+              errorMsg: data.data.errors[0].title,
             });
             // new doi is fetched
           } else {
@@ -108,8 +112,19 @@ export class DoiMint extends Component {
             Datacite DOI
           </Card.Header>
           <Card.Description>
-            <span style={{color:"#B6B6B6"}}>Record must be a <b>published</b> record to mint a DOI.</span>
+            <span style={{ color: "#B6B6B6" }}>
+              Record must be a <b>published</b> record to mint a DOI.
+            </span>
           </Card.Description>
+
+          {this.state.isError &&(
+          <Message negative>
+          <Message.Header>
+          {this.state.errorMsg}
+          </Message.Header>
+          <p>Please contact Repository supporters!</p>
+        </Message>
+          )}
 
           {/* when the Component is rendered */}
           {!this.is_doi && (
