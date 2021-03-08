@@ -1,5 +1,5 @@
 // WIP
-export function MapDatacite(metadata, recordid) {
+export function MapDatacite(metadata, recordid, prefix) {
   // console.log('record id', recordid)
   // console.log('retrieved', metadata)
   // console.log('creators []', metadata.creators)
@@ -22,11 +22,11 @@ export function MapDatacite(metadata, recordid) {
 
     const dataciterecord = {
         data : {
-          id: "10.0356/datacite-"+r,
+          id: prefix+"/datacite-"+r,
           type: "dois",
           attributes: {
             event: "publish",
-            doi: "10.0356/datacite-"+r,
+            doi: prefix+"/datacite-"+r,
             creators,
             titles: [{
               title: metadata.title

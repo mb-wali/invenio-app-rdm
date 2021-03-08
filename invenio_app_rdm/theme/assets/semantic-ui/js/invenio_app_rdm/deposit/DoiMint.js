@@ -47,14 +47,17 @@ export class DoiMint extends Component {
         showLoader: true,
       });
 
-      // get mapped DOI
-      const mapped = MapDatacite(this.metadata, this.record.id);
-
       // TODO: Get values from backend
       // make request for a new DOI
       const url = "https://api.test.datacite.org/dois"; // https://api.datacite.org/'
       const auth = { username: "TUG.OPENLIB", password: "aaeidkeseldie783[]" };
+      const prefix = "10.0356"
+
+      // get mapped DOI
+      const mapped = MapDatacite(this.metadata, this.record.id, prefix);
+
       const _doirest = new DoiRest(url);
+
       // Create a new DOI
       _doirest
         .create(mapped, auth)
