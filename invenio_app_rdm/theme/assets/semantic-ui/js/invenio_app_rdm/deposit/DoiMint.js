@@ -62,6 +62,9 @@ export class DoiMint extends Component {
           // if there is an error
           if (data.data.errors) {
             console.log(data.data.errors[0].title);
+            this.setState({
+              showLoader: false,
+            });
             // new doi is fetched
           } else {
             // add new identifier
@@ -102,7 +105,7 @@ export class DoiMint extends Component {
             Datacite DOI
           </Card.Header>
           <Card.Description>
-            Record must be a <b>published</b> record to mint a DOI.
+            <span style={{color:"#B6B6B6"}}>Record must be a <b>published</b> record to mint a DOI.</span>
           </Card.Description>
 
           {/* when the Component is rendered */}
