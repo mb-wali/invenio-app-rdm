@@ -36,6 +36,8 @@ import {
 import { AccordionField } from "react-invenio-forms";
 import { Card, Container, Divider, Grid, Ref, Sticky } from "semantic-ui-react";
 
+import i18next from "../i18next/i18next";
+
 export class RDMDepositForm extends Component {
   constructor(props) {
     super(props);
@@ -306,7 +308,7 @@ export class RDMDepositForm extends Component {
                 <AccordionField
                   fieldPath=""
                   active={true}
-                  label={"Basic information"}
+                  label={i18next.t("Basic information")}
                   ui={this.accordionStyle}
                 >
                   {this.config.pids.map((pid) => (
